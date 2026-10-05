@@ -51,6 +51,8 @@ public class ExpedienteService {
         log.info("SOLICITANTE: {}", solicitante);
         log.info("CURP: {}", request.getCurpPaciente());
         log.info("INSTITUCION REQUEST: {}", request.getInstitucion());
+        log.info("PUBLIC KEY: {}", request.getPublicKey());
+        log.info("X-API-KEY: {}", apiKey);
         log.info("======================================");
 
         /*
@@ -158,14 +160,7 @@ public class ExpedienteService {
 
         log.info("======================================");
         log.info("EXPEDIENTE CIFRADO");
-        log.info("INSTITUCION: {}", institucion);
-        log.info("TRACE ID: {}", traceId);
-        log.info("SOLICITANTE: {}", solicitante);
-        log.info("TIMESTAMP: {}", timestamp);
-        log.info("ENC length: {}", sealed.enc().length);
-        log.info(
-                "CT length: {}",
-                sealed.ciphertext().length);
+        log.info("ENCRIPTEDDATA: {}", encryptedDataBase64);
         log.info("======================================");
 
         /*
