@@ -50,10 +50,9 @@ public class ExpedienteService {
         log.info("TRACE ID: {}", traceId);
         log.info("SOLICITANTE: {}", solicitante);
         log.info("CURP: {}", request.getCurpPaciente());
-        log.info("INSTITUCION REQUEST: {}", request.getInstitucion());
+        log.info("INSTITUCION BODY REQUEST: {}", request.getInstitucion());
         log.info("PUBLIC KEY: {}", request.getPublicKey());
         log.info("X-API-KEY: {}", apiKey);
-        log.info("======================================");
 
         /*
          * 1. Decodificamos la clave pública que llega
@@ -62,11 +61,6 @@ public class ExpedienteService {
         byte[] requesterPublicKeyBytes =
                 Base64.getDecoder()
                         .decode(request.getPublicKey());
-
-        log.info(
-                "PUBLIC KEY REQUEST length: {}",
-                requesterPublicKeyBytes.length
-        );
 
         /*
          * 2. Leemos el expediente.
@@ -158,8 +152,6 @@ public class ExpedienteService {
                 Base64.getEncoder()
                         .encodeToString(sealed.ciphertext());
 
-        log.info("======================================");
-        log.info("EXPEDIENTE CIFRADO");
         log.info("ENCRIPTEDDATA: {}", encryptedDataBase64);
         log.info("======================================");
 
